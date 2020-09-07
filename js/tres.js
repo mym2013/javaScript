@@ -19,7 +19,8 @@ $(document).ready(function(){
           4-. un leer mas que agregue yo ( lo sacamos para clientes quedando un json nuevo) */
   
         var posts=[
-          { title:' Clientes destacados:',
+          { id:0,
+            title:' Clientes destacados:',
             picture_logo:' <img src="../img/entel.png" alt="logo cliente entel">',
             date: "publicado el día " + moment().date() +" "+ moment().format("MMMM") + "  del año " + moment().format("YYYY"),
             content:'<a href="https://es.wikipedia.org/wiki/Entel_Chile" target="_blank">ENTEL</a> es ampliamente conocida en la industria de las telcomunicaciones,'+
@@ -28,7 +29,8 @@ $(document).ready(function(){
             " tecnológicas, y telefonía celular, esta empresa es controlada por Inversores Chilenos como el grupo almendral y el grupo Matte" ,
             
           },
-          { title:'',
+          { id:1,
+            title:'',
             picture_logo:'<img src="../img/vtr.png" alt="logo cliente VTR">',
             date: "publicado el día " + moment().date() +" "+ moment().format("MMMM") + "  del año " + moment().format("YYYY"),
             content:'<a href="https://es.wikipedia.org/wiki/VTR_(empresa)" target="_blank">VTR</a> es una empresa de  telcomunicaciones, chilena '+
@@ -40,8 +42,9 @@ $(document).ready(function(){
             " VTR, estuvo en manos de capitales estadounidenses, en un 100% a través de Liberty Global, pero hoy en día comparte un 20% con el empresario nacional Alvaro Saieh",
             
           },
-          { title:'',
-          picture_logo:'<img src="../img/omega3.png" alt="logo cliente OMEGA">',
+          { id:2,
+            title:'',
+            picture_logo:'<img src="../img/omega3.png" alt="logo cliente OMEGA">',
             date: "publicado el día " + moment().date() +" "+ moment().format("MMMM") + "  del año " + moment().format("YYYY"),
             content:'<a href="http://www2.omegatelecom.cl/" target="_blank">OMEGA TELECOM</a> es una empresa del rubro de las telecomunicaciones que presta '+
             " servicios a las grandes compañías telco en chile, tiene gran impacto en tres grandes productos: el primero es la de "+
@@ -49,10 +52,11 @@ $(document).ready(function(){
             " aportar con todos los elementos de ferretería para la instalación de servicios, actualmente cuenta con mas de 400 empleados, "+
             " esta ubicada en la comuna de Cerrillos en la región metropolitana y es controlada en un 100% por capitales nacionales",
           },
-          { title:'',
-          picture_logo:' <img src="../img/inalco.jpg" alt="logo cliente miura autos">',
-          date: "publicado el día " + moment().date() +" "+ moment().format("MMMM") + "  del año " + moment().format("YYYY"),
-          content:' <a href="https://chevroletinalco.cl/" target="_blank">INALCO</a> es un importante concesionario de General Motors para las marcas Chevrolet;'+
+          { id:3,
+            title:'',
+            picture_logo:' <img src="../img/inalco.jpg" alt="logo cliente miura autos">',
+            date: "publicado el día " + moment().date() +" "+ moment().format("MMMM") + "  del año " + moment().format("YYYY"),
+            content:' <a href="https://chevroletinalco.cl/" target="_blank">INALCO</a> es un importante concesionario de General Motors para las marcas Chevrolet;'+
            " Opel e IZUZU,  actualmente controlados por los capitales de Grass & Arueste, que también maneja otras marcas como Kia. "+
            " a partir del 2016 comenzó una alianza estratégica para comercializar las marcas Voskswagen y Porshe, ya que Inalco está dentro" +
            " de los cuatro más grandes de Chevrolet, fué elgida para ser un socio estratégico en chile para las marcas europeas antes citadas  "+
@@ -60,7 +64,8 @@ $(document).ready(function(){
            
          
         },
-        { title:'',
+        { id:4,
+          title:'',
         picture_logo:' <img src="../img/previser.png" alt="logo cliente previser">',
         date: "publicado el día " + moment().date() +" "+ moment().format("MMMM") + "  del año " + moment().format("YYYY"),
         content:'<a href="http://www.previser.cl/" target="_blank">PREVISER</a>'+
@@ -70,7 +75,8 @@ $(document).ready(function(){
         " dónde el manejo de estos conceptos requiere la participación de elementos expertos en la materia, es considerada una empresa mediana con alrededor de 45 empleados y de capitales nacionales",
         
       },
-      { title:'',
+      { id:5,
+        title:'',
       picture_logo:' <img src="../img/tecno.png" alt="logo cliente tecnoimagen">',
       date: "publicado el día " + moment().date() +" "+ moment().format("MMMM") + "  del año " + moment().format("YYYY"),
       content:'<a href="https://www.tecnoimagen.cl/" target="_blank">TECNOIMAGEN</a>'+
@@ -82,6 +88,13 @@ $(document).ready(function(){
         " Sistemas de biopsias estereotoráxica entre otros.",
       
     },
+    { id:6,
+      title:'',
+    picture_logo:' <img src="https://lacem.cl/wp-content/uploads/2020/01/3.png" alt="logo cliente lacem" width="200">',
+    date: "publicado el día " + moment().date() +" "+ moment().format("MMMM") + "  del año " + moment().format("YYYY"),
+    content:'<a href="https://lacem.cl/" target="_blank">LACEM</a>'+
+      " Laboratorio número 1 de Chile en ensayos de construcción, con más de 25 años de trayectoria.",
+  },
   
           ];
   
@@ -118,10 +131,16 @@ $(document).ready(function(){
         <span> ${item.picture_logo} </span>
         <p>
           ${item.content}
-        </p>
-        <a href="../index.html" class="button-more">inicio</a>
-      </article>
-    `;
+        </p>`;
+
+        if(item.id==6){
+          post = post +`<a href="../index.html" class="button-more">inicio</a>` + `<a href="../soporteLacem.php" class="button-more">Soporte</a>`;
+        }
+        else{
+          post = post +`<a href="../index.html" class="button-more">inicio</a>`;
+        }
+
+        post = post + `</article>`;
   
     /* con este console log hago la verificación visual del contenido de la variable post desde el jason */
     /* console.log(post); */
