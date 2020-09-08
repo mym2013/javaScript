@@ -1,10 +1,10 @@
 <?php
 
-define('USER', 'soporte');
+define('USER', 'cto62190_soporte ');
 define('PASSWORD', 'soportetdchile2020');
 define('HOST', 'localhost');
 define('DATABASE', 'cto62190_soporte');
- 
+
 try {
     $connection = new PDO("mysql:host=".HOST.";dbname=".DATABASE, USER, PASSWORD);
 } catch (PDOException $e) {
