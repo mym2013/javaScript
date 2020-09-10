@@ -1,44 +1,49 @@
 <?php
 
-define('USER', 'cto62190_soporte ');
-define('PASSWORD', 'soportetdchile2020');
+define('USER', 'cto62190_consultasoporte');
+define('PASSWORD', 'lacem123456');
 define('HOST', 'localhost');
 define('DATABASE', 'cto62190_soporte');
 
-try {
-    $connection = new PDO("mysql:host=".HOST.";dbname=".DATABASE, USER, PASSWORD);
-} catch (PDOException $e) {
-    exit("Error: " . $e->getMessage());
+
+//Crear conexi«Ñn con la base de datos.
+//$conn = new mysqli(HOST, USER, PASSWORD, DATABASE);
+$conn = mysqli_connect("localhost", "cto62190_consultasoporte", "lacem123456", "cto62190_soporte");
+
+
+if (mysqli_connect_errno()) {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  exit();
 }
-
-
 
 if (isset($_POST['email']) and isset($_POST['password'])) {
  
     $email = $_POST['email'];
     $password = $_POST['password'];
     $password = md5($password);
- 
-    $query = $connection->prepare("SELECT * FROM clientes WHERE usuario=:user and clave=:password");
-    $query->bindParam("user", $email, PDO::PARAM_STR);
-    $query->bindParam("password", $password, PDO::PARAM_STR);
-    $query->execute();
- 
-    if ($query->rowCount() > 0) {
-        echo '<p class="error">Usuario autorizado!</p>';
-        //link de solicitudes
-        
+    $cliente = "LACEM";
+    $resultado = 0;
+   
+   
+    //Consulta segura para evitar inyecciones SQL.
+    $sql="SELECT * FROM clientes WHERE usuario='$email' AND clave='$password' AND cliente='LACEM'";
+
+    // Perform query
+    if ($resultado = mysqli_query($conn, $sql)) {
+      echo "Usuario encontrado: " . mysqli_num_rows($resultado);
+      $num=mysqli_num_rows($resultado);
+      
+      // Free result set
+      mysqli_free_result($resultado);
     }
-    else{
-        echo '<p class="error">Las credenciales son incorrectas</p>';
+
+    mysqli_close($resultado);
+
+    if($num==1){
+        echo "<script>window.location='https://app.flokzu.com/public/0286fLSOLC';</script>";
     }
- 
 
 }
-else{
-    echo '<p class="error">Las credenciales son incorrectas</p>';
-}
-
 
 ?>
 
@@ -46,9 +51,9 @@ else{
 
 
 <html>
-<head>
+<head><meta charset="euc-jp">
     <title>Soporte Lacem - SYSMA SpA</title>
-    <meta charset="UTF-8" />
+    
     <meta name="author" content="Sysma Spa" />
     <style>
                 
