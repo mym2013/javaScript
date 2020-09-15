@@ -19,6 +19,16 @@ $(document).ready(function(){
         4-. un leer mas que agregue yo */
 
       var posts=[
+        { title:'Chilenos y sus Hábitos de navegación en la red ',
+        date: "publicado el día " + moment().date() +" "+ moment().format("MMMM") + "  del año " + moment().format("YYYY"),
+        content:"Chilenos y sus hábitos de navegación: 61% dice que “lo que está en internet es verdad” y el 74% acepta “cuentas de desconocidos en redes sociales”. "+
+        
+        
+        '<img src="../img/Nav_Chile.jpg" alt="Habitos de navecación en la red de los chilenos" title="Hábitos de Navegación">'+
+        '<a href="https://www.latercera.com/que-pasa/noticia/chilenos-y-sus-habitos-de-navegacion-61-dice-que-lo-que-esta-en-internet-es-verdad-y-el-74-acepta-cuentas-de-desconocidos-en-redes-sociales/4HYXECJYIVDWPKSQYMMO72O54I/" target="_blank"><img src="../img/laTercera.jpg" alt="La tercera"></a>',
+        leermas:'paginas/sobre_tdchile.html',
+       
+        },
         { title:'Los cambios tecnológicos que debe enfrentar Chile en 2020',
         date: "publicado el día " + moment().date() +" "+ moment().format("MMMM") + "  del año " + moment().format("YYYY"),
         content:"Con un escenario impactado por el estallido social se prevé que durante este año no sólo se desarrollen en el país tecnologías que globalmente suenen fuerte, sino también que la preocupación sea cómo aprovechar al máximo el impacto positivo de estas sobre las personas. y los temas que marcaron la agenda 2019. "+
