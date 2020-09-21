@@ -6,7 +6,7 @@ define('HOST', 'localhost');
 define('DATABASE', 'cto62190_soporte');
 
 
-//Crear conexiè´—n con la base de datos.
+//Crear conexiÔøΩÔøΩÔøΩn con la base de datos.
 //$conn = new mysqli(HOST, USER, PASSWORD, DATABASE);
 $conn = mysqli_connect("localhost", "cto62190_consultasoporte", "lacem123456", "cto62190_soporte");
 
@@ -40,7 +40,7 @@ if (isset($_POST['email']) and isset($_POST['password'])) {
     mysqli_close($resultado);
 
     if($num==1){
-        echo "<script>window.location='https://app.flokzu.com/public/0286fLSOLC';</script>";
+        echo "<script>window.location='https://app.flokzu.com/public/0286fLASI';</script>";
     }
 
 }
